@@ -1,0 +1,27 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-service
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  profiles:
+    active: git
+  cloud:
+    config:
+      server:
+        git:
+#          uri: file:///C:\Users\icore\Desktop\dowon\lge-msa\git-local-repo
+          uri: https://github.com/joneconsulting/spring-cloud-config
+        native:
+          search-locations: file:///C:\Users\icore\Desktop\dowon\lge-msa\git-local-repo
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, busrefresh, refresh, metrics
